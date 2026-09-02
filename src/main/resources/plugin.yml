@@ -1,0 +1,10 @@
+name: IllegalPlacements
+version: '${version}'
+
+main: pl.olie.illegalPlacements.IllegalPlacements
+api-version: '26.2'
+commands:
+  IllegalPlacements:
+    description: reload
+
+authors: [ Olie ]
