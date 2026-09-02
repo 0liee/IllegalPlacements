@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.jetbrains.annotations.NotNull;
 import pl.olie.illegalPlacements.IllegalPlacements;
+import pl.olie.illegalPlacements.Utils;
 import pl.olie.illegalPlacements.config.Config;
 
 import java.util.ArrayList;
@@ -14,9 +15,11 @@ import java.util.List;
 public class Reload implements CommandExecutor, TabCompleter {
     private final IllegalPlacements plugin;
     private final Config config;
-    public Reload(IllegalPlacements plugin){
+    private final Utils utils;
+    public Reload(IllegalPlacements plugin, Utils utils){
         this.plugin = plugin;
         this.config = plugin.getConfigValues();
+        this.utils = utils;
     }
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
@@ -26,6 +29,7 @@ public class Reload implements CommandExecutor, TabCompleter {
             }
             plugin.reloadConfig();
             config.loadConfig();
+            utils.reload();
             sender.sendMessage("§aReloaded config!");
         }
         return false;

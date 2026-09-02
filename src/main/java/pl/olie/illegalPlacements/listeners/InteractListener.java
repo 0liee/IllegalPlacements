@@ -22,7 +22,6 @@ public class InteractListener implements Listener {
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onInteract(PlayerInteractEvent event) {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
-        if (event.getHand() != null) return;
 
         Player player = event.getPlayer();
         ItemStack item = event.getItem();
