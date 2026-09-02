@@ -12,18 +12,29 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import pl.olie.illegalPlacements.IllegalPlacements;
 import pl.olie.illegalPlacements.Utils;
+import pl.olie.illegalPlacements.config.Config;
 
 public class InteractListener implements Listener {
     private final Utils utils;
-    public InteractListener(Utils utils){
+    private final Config config;
+    public InteractListener(IllegalPlacements plugin, Utils utils){
+        this.config = plugin.getConfigValues();
         this.utils = utils;
     }
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onInteract(PlayerInteractEvent event) {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
-
         Player player = event.getPlayer();
+        if(config.isRequirePermission()){
+            if(!player.hasPermission("illegalplacements.use")){
+                return;
+            }
+        }
+        if(config.getDisabledWorlds().contains(player.getWorld().getName())){
+            return;
+        }
         ItemStack item = event.getItem();
         if (item == null || item.getType().isAir()) return;
 

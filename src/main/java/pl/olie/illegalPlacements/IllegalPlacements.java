@@ -16,7 +16,7 @@ public final class IllegalPlacements extends JavaPlugin {
         config = new Config(this);
         Utils utils = new Utils(this);
         Objects.requireNonNull(getCommand("illegalplacements")).setExecutor(new Reload(this, utils));
-        getServer().getPluginManager().registerEvents(new InteractListener(utils), this);
+        getServer().getPluginManager().registerEvents(new InteractListener(this, utils), this);
         getServer().getPluginManager().registerEvents(new PhysicListener(this, utils), this);
 
         saveDefaultConfig();
