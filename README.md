@@ -7,7 +7,7 @@
 
 ## Supported Versions
 
-- Spigot / Paper **1.16.5+**
+- Spigot / Paper **1.16+**
 
 ## Commands
 
