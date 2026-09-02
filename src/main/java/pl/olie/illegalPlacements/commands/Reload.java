@@ -5,7 +5,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.NonNull;
 import pl.olie.illegalPlacements.IllegalPlacements;
 import pl.olie.illegalPlacements.config.Config;
 
@@ -33,7 +32,7 @@ public class Reload implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, String[] args){
+    public List<String> onTabComplete(CommandSender sender,Command command,String label, String[] args){
         if(args.length == 1){
             if(!sender.hasPermission("illegalplacement.reload")){
                 return List.of();

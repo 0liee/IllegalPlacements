@@ -60,11 +60,13 @@ public class InteractListener implements Listener {
             Block top = placeBlock.getRelative(BlockFace.UP);
             top.setType(itemType, false);
 
-            if (placeBlock.getBlockData() instanceof Bisected bottom) {
+            if (placeBlock.getBlockData() instanceof Bisected) {
+                Bisected bottom = (Bisected) placeBlock.getBlockData();
                 bottom.setHalf(Bisected.Half.BOTTOM);
                 placeBlock.setBlockData(bottom, false);
             }
-            if (top.getBlockData() instanceof Bisected topData) {
+            if (top.getBlockData() instanceof Bisected) {
+                Bisected topData = (Bisected) top.getBlockData();
                 topData.setHalf(Bisected.Half.TOP);
                 top.setBlockData(topData, false);
             }

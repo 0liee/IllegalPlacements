@@ -2,7 +2,7 @@ name: IllegalPlacements
 version: '${version}'
 
 main: pl.olie.illegalPlacements.IllegalPlacements
-api-version: '26.2'
+api-version: '1.16'
 commands:
   IllegalPlacements:
     description: reload
