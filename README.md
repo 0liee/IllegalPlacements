@@ -16,6 +16,7 @@
 ## Permissions
 
 - `illegalplacements.reload` - allows reloading plugin
+- `illegalplacements.use` - allows to placing blocks in illegal locations
 
 ## Building
 
