@@ -71,6 +71,7 @@ blocks:
   - "WITHER_ROSE"
   - "LEAF_LITTER"
 
+enable-illegalplacements: true
 require-permission: true
 disable-physics: true
 disabled-worlds:

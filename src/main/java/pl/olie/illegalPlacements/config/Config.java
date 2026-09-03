@@ -14,14 +14,23 @@ public class Config {
     private boolean physics;
     private List<String> disabledWorlds;
     private boolean requirePermission;
+    private boolean enablePlacements;
     public void loadConfig(){
         this.blocks = plugin.getConfig().getStringList("blocks");
         this.physics = plugin.getConfig().getBoolean("disable-physics");
         this.disabledWorlds = plugin.getConfig().getStringList("disabled-worlds");
         this.requirePermission = plugin.getConfig().getBoolean("require-permission");
+        this.enablePlacements = plugin.getConfig().getBoolean("enable-illegalplacements");
     }
     public List<String> getBlocks(){return blocks;}
     public boolean getPhysics(){return physics;}
     public List<String> getDisabledWorlds(){return disabledWorlds;}
     public boolean isRequirePermission(){return requirePermission;}
+    public boolean isEnabledPlacements(){return enablePlacements;}
+
+    public void setBoolean(String path, boolean b){
+        plugin.getConfig().set(path, b);
+        plugin.saveConfig();
+        loadConfig();
+    }
 }

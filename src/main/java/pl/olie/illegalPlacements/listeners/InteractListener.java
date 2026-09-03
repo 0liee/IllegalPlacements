@@ -28,9 +28,12 @@ public class InteractListener implements Listener {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
         Player player = event.getPlayer();
         if(config.isRequirePermission()){
-            if(!player.hasPermission("illegalplacements.use")){
+            if(!player.hasPermission("illegalplacements.use") || !player.hasPermission("illegalplacements.*")){
                 return;
             }
+        }
+        if(!config.isEnabledPlacements()){
+            return;
         }
         if(config.getDisabledWorlds().contains(player.getWorld().getName())){
             return;

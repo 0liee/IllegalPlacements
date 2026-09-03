@@ -1,7 +1,7 @@
 package pl.olie.illegalPlacements;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import pl.olie.illegalPlacements.commands.Reload;
+import pl.olie.illegalPlacements.commands.IllegalPlacementsCommand;
 import pl.olie.illegalPlacements.config.Config;
 import pl.olie.illegalPlacements.listeners.InteractListener;
 import pl.olie.illegalPlacements.listeners.PhysicListener;
@@ -15,7 +15,7 @@ public final class IllegalPlacements extends JavaPlugin {
     public void onEnable() {
         config = new Config(this);
         Utils utils = new Utils(this);
-        Objects.requireNonNull(getCommand("illegalplacements")).setExecutor(new Reload(this, utils));
+        Objects.requireNonNull(getCommand("illegalplacements")).setExecutor(new IllegalPlacementsCommand(this, utils));
         getServer().getPluginManager().registerEvents(new InteractListener(this, utils), this);
         getServer().getPluginManager().registerEvents(new PhysicListener(this, utils), this);
 
