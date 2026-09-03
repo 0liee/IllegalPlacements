@@ -12,6 +12,7 @@
 ## Commands
 
 - `/illegalplacements reload` - reload plugin configuration
+- `/illegalplacements toggle` - enable/disable illegal placing
 
 ## Permissions
 
